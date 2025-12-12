@@ -1,36 +1,25 @@
 package com.example.demo.Model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
-@Table(name = "producto")
-@Builder
+@Table(name = "rol")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductoModel {
+@Builder  
+public class RolModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotBlank
+    @Column(unique = true)
     private String nombre;
-    
-    @NotBlank
     private String descripcion;
-    
-    @Min(0)
-    private double precio;
-
-    @Min(0)
-    private int cantidad;
-
-    private String categoria;
 }

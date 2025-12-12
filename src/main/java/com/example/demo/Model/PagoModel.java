@@ -5,16 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
 
 
 @Entity
-@Table(name = "pedido_items")
+@Table(name = "pago")
+@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class PedidoItemModel {
-
+public class PagoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -23,14 +23,20 @@ public class PedidoItemModel {
     @JoinColumn(name = "pedido_id", nullable = false)
     private PedidoModel pedido;
 
-    @ManyToOne
-    @JoinColumn(name = "producto_id", nullable = false)
-    private ProductoModel producto;
+    @Column(nullable = false)
+    private double monto;   
 
-    private int cantidad;
+    @Column(nullable = false)
+    private LocalDateTime fechaPago;
 
-    private double precioUnitario;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private MetodoPago metodoPago;
 
-    private double precioTotal;
+    public enum MetodoPago {
+        TARJETA_CREDITO,
+        TARJETA_DEBITO,
+        MERCADO_PAGO,
+    }
+
 }
-

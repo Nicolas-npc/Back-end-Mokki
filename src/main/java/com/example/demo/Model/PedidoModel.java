@@ -1,33 +1,44 @@
 package com.example.demo.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;  
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "pedido")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class PedidoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int productoId;
-    private int cantidad;
-    private double precioUnitario;
-    private double precioTotal;
-    private String estado;
-    private String fechaPedido;
-    private String fechaEntrega;
-    private String metodoPago;
-    private String direccionEnvio;
-    private String nombreCliente;
-    private String telefonoCliente;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserModel user;
+
+    @OneToOne
+    @JoinColumn(name = "carrito_id", nullable = false)
+    private CarritoModel carrito;
+
+    private String total;
+
+    @Column(nullable = false)
+    private LocalDateTime fechaPedido;
+
+    @Enumerated(EnumType.STRING)
+    private EstadoPedido estado;
+
+    public enum EstadoPedido {
+        PENDIENTE,
+        EN_PROCESO,
+        COMPLETADO,
+        CANCELADO
+    }
+
 }

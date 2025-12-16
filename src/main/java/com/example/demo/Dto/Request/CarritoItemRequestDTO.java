@@ -1,4 +1,4 @@
-package Dto.Request;
+package com.example.demo.Dto.Request;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -10,10 +10,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CarritoItemRequestDTO {
+
+    @NotNull(message = "El ID del carrito no puede ser nulo")
+    private Integer carritoId;
+
     @NotNull(message = "El ID del producto no puede ser nulo")
-    private Long productoId;
+    private Integer productoId;
 
     @NotNull(message = "La cantidad no puede ser nula")
     @Min(value = 1, message = "La cantidad debe ser al menos 1")
-    private long cantidad;
+    private Integer cantidad;
 }

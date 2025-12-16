@@ -9,7 +9,7 @@ import com.example.demo.Model.RolModel;
 import com.example.demo.Model.UserModel;
 import com.example.demo.Repository.RolRepository;
 import com.example.demo.Repository.UserRepository;
-import com.example.demo.Security.JetService;
+import com.example.demo.Security.JwtService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,10 +23,10 @@ import java.util.Map;
 public class AuthController {
     private final UserRepository userRepository;
     private final RolRepository rolRepository;
-    private final JetService jwtService;
+    private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
 
-    public AuthController(UserRepository userRepository,RolRepository rolRepository,JetService jwtService,PasswordEncoder passwordEncoder) {
+    public AuthController(UserRepository userRepository,RolRepository rolRepository,JwtService jwtService,PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.rolRepository = rolRepository;
         this.jwtService = jwtService;

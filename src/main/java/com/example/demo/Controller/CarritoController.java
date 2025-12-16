@@ -15,13 +15,6 @@ import com.example.demo.Model.CarritoModel;
 import com.example.demo.Model.UserModel;
 import com.example.demo.Service.CarritoService;
 import com.example.demo.Service.UserService;
-import com.example.demo.Dto.Request.LoginRequestDTO;
-import com.example.demo.Dto.Request.RegistroRequesDTO;
-import com.example.demo.Dto.Respuesta.LoginResponseDTO;
-import com.example.demo.Dto.Respuesta.RolResponsDTO;
-import com.example.demo.Dto.Respuesta.UserResponseDTO;
-import com.example.demo.Security.JwtService;
-
 @RestController
 @RequestMapping("/carrito")
 public class CarritoController {

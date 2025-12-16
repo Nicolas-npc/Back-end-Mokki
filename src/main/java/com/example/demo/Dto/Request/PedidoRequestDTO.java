@@ -1,4 +1,4 @@
-package Dto.Request;
+package com.example.demo.Dto.Request;
 
 import lombok.Data;
 import jakarta.validation.constraints.NotNull;

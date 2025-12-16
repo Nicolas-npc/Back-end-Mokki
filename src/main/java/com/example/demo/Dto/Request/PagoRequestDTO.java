@@ -1,4 +1,4 @@
-package Dto.Request;
+package com.example.demo.Dto.Request;
 
 import com.example.demo.Model.PagoModel;
 import jakarta.validation.constraints.NotNull;

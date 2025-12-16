@@ -66,7 +66,7 @@ public class CarritoService {
             carritoItemRepository.save(item);
         } else {
             CarritoItemModel nuevoItem = new CarritoItemModel();
-            nuevoItem.setCarritoId(carrito);
+            nuevoItem.setCarrito(carrito);
             nuevoItem.setProducto(producto);
             nuevoItem.setCantidad(cantidad);
             nuevoItem.setPrecioUnitario(producto.getPrecio());
@@ -91,7 +91,7 @@ public class CarritoService {
             carritoItemRepository.save(item);
         }
         
-        return carritoRepository.findById(item.getCarritoId().getId())
+        return carritoRepository.findById(item.getCarrito().getId())
             .orElseThrow(() -> new RuntimeException("Carrito no encontrado"));
     }
 

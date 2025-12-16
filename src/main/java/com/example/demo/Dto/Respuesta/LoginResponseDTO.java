@@ -1,4 +1,4 @@
-package Dto.Respuesta;
+package com.example.demo.Dto.Respuesta;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

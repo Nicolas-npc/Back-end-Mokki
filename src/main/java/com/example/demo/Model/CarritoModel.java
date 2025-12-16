@@ -23,7 +23,7 @@ public class CarritoModel {
     @JoinColumn(name = "user_id", nullable = false)  
     private UserModel user;
 
-    @OneToMany(mappedBy = "carritoId", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
     private java.util.List<CarritoItemModel> items;
 
     private LocalDateTime fechaGenerado;

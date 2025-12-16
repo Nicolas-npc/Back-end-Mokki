@@ -1,4 +1,4 @@
-package Dto.Respuesta;
+package com.example.demo.Dto.Respuesta;
 
 import java.util.List;
 import java.time.LocalDateTime;
